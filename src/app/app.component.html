@@ -2,69 +2,84 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col col-md-12">
-      <h1>Albumes Menu</h1>
+      <h1>Selecciona un album</h1>
     </div>
-  </div>
-  <div id="selects" class="row">
-    <div class="col col-md-12">
-      <select id = "country" [(ngModel)] = "countrySelected" (change)="searchAgain()">
-        <option>select country</option>
-        <option *ngFor="let country of countries" [value] = "country.code" >{{country.name}}</option>
-      </select>
-      <select id = "genre" [(ngModel)] = "genreSelected" (change)="searchAgain()">
-        <option>select gener</option>
-        <option *ngFor="let genre of genders" [value] = "genre">{{genre}}</option>
-      </select>
-      <select  id = "sort" type="text" [(ngModel)] = "sortSelected" (change)="searchAgain()">
-        <option *ngFor="let sort of sorters" [value] = "sort.value">{{sort.name}}</option>
-        
-      </select>
+  
+    <div id="selects">
+      <div class="col col-md-12">
+        <select id = "country" [(ngModel)] = "countrySelected" (change)="searchAgain()">
+          <option>select country</option>
+          <option *ngFor="let country of countries" [value] = "country.code" >{{country.name}}</option>
+        </select>
+        <select id = "genre" [(ngModel)] = "genreSelected" (change)="searchAgain()">
+          <option>select gener</option>
+          <option *ngFor="let genre of genders" [value] = "genre">{{genre}}</option>
+        </select>
+        <select  id = "sort" type="text" [(ngModel)] = "sortSelected" (change)="searchAgain()">
+          <option *ngFor="let sort of sorters" [value] = "sort.value">{{sort.name}}</option>
+          
+        </select>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col col-lg-10 col-md-8">
-      <table class="table table-striped table-bordered table-sm row-border hover" datatable [dtOptions]="dtOptions">
-        <thead>
-          <tr>
-            <th>Artist</th>
-            <th>Genre</th>
-            <th>Label</th>
-            <th>Status</th>
-            <th>Title</th>
-            <th>Upc</th>
-            <th>userName</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let album of albumes" (click) = "showUserData(album.id)">
-                <td>{{album.artist}}</td>
-                <td>{{album.genre}}</td>
-                <td>{{album.label}}</td>
-                <td>{{album.status}}</td>
-                <td>{{album.title}}</td>
-                <td>{{album.upc}}</td>
-                <td><a href="#" [title]="album.user.countryCode"> {{album.user.name}} -- {{album.user.countryCode}} </a></td>
+    
+      <div class="col col-md-12">
+        <table class="table table-striped table-bordered table-sm row-border hover" datatable [dtOptions]="dtOptions">
+          <thead>
+            <tr>
+              <th>Artist</th>
+              <th>Genre</th>
+              <th>Label</th>
+              <th>Status</th>
+              <th>Title</th>
+              <th>Upc</th>
+              <th>userName</th>
             </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="col col-lg-2 col-md-2">
-      <div class="row">
-        <div class="card" style="width:  18rem">
-          <div class="card-body">
-            <h5 class="card-title">
-              <- Select an Album
-            </h5>
-          </div>
-        </div>
+          </thead>
+          <tbody>
+            <tr *ngFor="let album of albumes" (click) = "showUserData(album)">
+                  <td>{{album.artist}}</td>
+                  <td>{{album.genre}}</td>
+                  <td>{{album.label}}</td>
+                  <td>{{album.status}}</td>
+                  <td>{{album.title}}</td>
+                  <td>{{album.upc}}</td>
+                  <td><a href="#" [title]="album.user.email"> {{album.user.name}} -- {{album.user.countryCode}} </a></td>
+              </tr>
+          </tbody>
+        </table>
       </div>
-      <div class="row">
-        <h1>Songs Lists</h1>
-        <ol>
-          <li *ngFor="let track if tracks">{{track}}</li>
-        </ol>
-      </div>
+    
+  </div>
+  <div class="row" *ngIf="albumSelected">    
+    <h1>Songs Lists from {{albumSelected.title}}</h1> 
+    <div class="col col-md-12">
+      <select  id = "sort" type="text" [(ngModel)] = "sortSelectedTracks" (change)="fillTracks()">
+        <option *ngFor="let sortTrack of sortersTracks" [value] = "sortTrack.value">{{sortTrack.name}}</option>
+      </select>
     </div>
+    
+    
+      <div class="col col-md-12">
+        <table class="table table-striped table-bordered table-sm row-border hover" datatable [dtOptions]="dtOptions">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Album title</th>
+              <th>User email</th>
+              <th>Country code</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let track of tracks">
+                  <td>{{track.title}}</td>
+                  <td>{{track.album.title}}</td>
+                  <td>{{track.user.email}}</td>
+                  <td>{{track.user.countrycode}}</td>
+              </tr>
+          </tbody>
+        </table>
+      </div>
+    
   </div>
    
 </div>

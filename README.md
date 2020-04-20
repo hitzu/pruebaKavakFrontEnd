@@ -1,27 +1,26 @@
-# PruebaKavakFrontEnd
+# Prueba Tecnica Para Kavak
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
+Front end con Angular 7
 
-## Development server
+## Instalacion
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+1. Montar servidor ` https://github.com/hitzu/pruebaKavak.git `
+2. Clonar repositorio ` https://github.com/hitzu/pruebaKavakFrontEnd.git `
+3. Instalar todas las dependencias con ` npm install `
+4. Levantar el servidor angular con ` npm start `
+5. Acceder a ` http://localhost:4200/ `
 
-## Code scaffolding
+## Uso
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+![albumes sin filtro](https://octodex.github.com/images/yaktocat.png)
 
-## Build
+La app muestra todos los albumes con la posibilidad de filtrarlos por el pais de usuario y el genero del album, asi como ordenarlos por el titulo de orden ascendente y descendente.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+![albumes filtrados](https://octodex.github.com/images/yaktocat.png)
 
-## Running unit tests
+Cuando se selecciona un album se mostrara el listado de los tracks con el formato deseado del punto 1 de la prueba
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+![tracks](https://octodex.github.com/images/yaktocat.png)
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
