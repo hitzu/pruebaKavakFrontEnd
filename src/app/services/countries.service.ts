@@ -7,21 +7,16 @@ import { environment } from "../../environments/environment";
 @Injectable({
 	providedIn: "root"
 })
-export class AlbumService {
+export class CountryService {
     private url : string;
     
     constructor(private _http:HttpClient) {
         this.url = environment.URL_SERVER;
     }
 
-    getAlbumsByCountry( countryCode : string, genre : string, sort : string ):Observable<any> {
+    getCountry():Observable<any> {
         let headers = new HttpHeaders({ "Content-type": "application/json" })
-        return this._http.get(`${this.url}albums/byUserCountryAndGenre/${countryCode}/${genre}/${sort}`, {headers : headers})
-    }
-
-    getGeners():Observable<any> {
-        let headers = new HttpHeaders({ "Content-type": "application/json" })
-        return this._http.get(`${this.url}albums/genres`, {headers : headers})
+        return this._http.get(`${this.url}country/all`, {headers : headers})
     }
 
 }

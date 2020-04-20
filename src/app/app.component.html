@@ -7,11 +7,13 @@
   </div>
   <div id="selects" class="row">
     <div class="col col-md-12">
-      <select id = "country">
-        <option *ngFor="let country of countries" value = "country">{{country}}</option>
+      <select id = "country" [(ngModel)] = "countrySelected" (change)="searchAgain()">
+        <option>select country</option>
+        <option *ngFor="let country of countries" [value] = "country.code" >{{country.name}}</option>
       </select>
-      <select id = "genre">
-        <option *ngFor="let genre of genders" value = "genre">{{genre}}</option>
+      <select id = "genre" [(ngModel)] = "genreSelected" (change)="searchAgain()">
+        <option>select gener</option>
+        <option *ngFor="let genre of genders" [value] = "genre">{{genre}}</option>
       </select>
       <select  id = "sort" type="text" [(ngModel)] = "sortSelected" (change)="searchAgain()">
         <option *ngFor="let sort of sorters" [value] = "sort.value">{{sort.name}}</option>
@@ -30,16 +32,18 @@
             <th>Status</th>
             <th>Title</th>
             <th>Upc</th>
+            <th>userName</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let group of data" (click) = "showData(group.id)">
-                <td>{{group.artist}}</td>
-                <td>{{group.genre}}</td>
-                <td>{{group.label}}</td>
-                <td>{{group.status}}</td>
-                <td>{{group.title}}</td>
-                <td>{{group.upc}}</td>
+          <tr *ngFor="let album of albumes" (click) = "showUserData(album.id)">
+                <td>{{album.artist}}</td>
+                <td>{{album.genre}}</td>
+                <td>{{album.label}}</td>
+                <td>{{album.status}}</td>
+                <td>{{album.title}}</td>
+                <td>{{album.upc}}</td>
+                <td><a href="#" [title]="album.user.countryCode"> {{album.user.name}} -- {{album.user.countryCode}} </a></td>
             </tr>
         </tbody>
       </table>
