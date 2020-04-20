@@ -12,15 +12,15 @@ Front end con Angular 7
 
 ## Uso
 
-![albumes sin filtro](https://octodex.github.com/images/yaktocat.png)
+![albumes sin filtro](https://github.com/hitzu/pruebaKavakFrontEnd/blob/master/readMeImages/albumes%20sin%20filtros.png?raw=true)
 
 La app muestra todos los albumes con la posibilidad de filtrarlos por el pais de usuario y el genero del album, asi como ordenarlos por el titulo de orden ascendente y descendente.
 
-![albumes filtrados](https://octodex.github.com/images/yaktocat.png)
+![albumes filtrados](https://github.com/hitzu/pruebaKavakFrontEnd/blob/master/readMeImages/albumes.png?raw=true)
 
 Cuando se selecciona un album se mostrara el listado de los tracks con el formato deseado del punto 1 de la prueba
 
-![tracks](https://octodex.github.com/images/yaktocat.png)
+![tracks](https://github.com/hitzu/pruebaKavakFrontEnd/blob/master/readMeImages/tracks.png?raw=true)
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
